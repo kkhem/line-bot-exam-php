@@ -32,7 +32,7 @@ if (!is_null($events['events'])) {
 
 			$remark = "";
 
-			for ($i=2; $i < count($data_list) ; $i++) { 
+			for ($i=2; $i <= count($data_list) ; $i++) { 
 				
 				$remark .= $data_list[i];
 			}
