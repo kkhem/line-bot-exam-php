@@ -22,7 +22,7 @@ if (!is_null($events['events'])) {
 
 			$emp_code = substr($text,0,6);
 
-			$text = $emp_code;
+			$text = $emp_code+", length : "+strlen($emp_code);
 			
 			// Get replyToken
 			$replyToken = $event['replyToken'];
