@@ -22,9 +22,11 @@ if (!is_null($events['events'])) {
 
 			$all_len = strlen($text);
 
+			$location = substr($text,7,$all_len);
+
 			$emp_code = substr($text,0,6);
 
-			$text = "{$emp_code} , length : {strlen($emp_code)}";
+			$text = "Empcode = {$emp_code} , Location = {$location}";
 			
 			// Get replyToken
 			$replyToken = $event['replyToken'];
