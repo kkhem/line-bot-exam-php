@@ -20,14 +20,24 @@ if (!is_null($events['events'])) {
 			// Get text sent
 			$text = $event['message']['text'];
 
-			$all_len = strlen($text);
+			// $all_len = strlen($text);
 
-			$location = substr($text,7,$all_len);
+			// $location = substr($text,7,$all_len);
 
-			$emp_code = substr($text,0,6);
+			// $emp_code = substr($text,0,6);
 
-			$text = "Empcode = {$emp_code} , Location = {$location}";
+			// $text = "Empcode = {$emp_code} , Location = {$location}";
 			
+			$data_list = explode(" ",$text);
+
+			$remark = "";
+
+			for ($i=2; $i < count($data_list) ; $i++) { 
+				$remark += $data_list[i];
+			}
+
+			$text = "Empcode = {$data_list[0]} , Location = {$data_list[1]} , Remark = {$remark}";
+
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
