@@ -20,9 +20,11 @@ if (!is_null($events['events'])) {
 			// Get text sent
 			$text = $event['message']['text'];
 
+			$all_len = strlen($text);
+
 			$emp_code = substr($text,0,6);
 
-			$text = $emp_code+", length : "+strlen($emp_code);
+			$text = $emp_code." , length : ".strlen($emp_code);
 			
 			// Get replyToken
 			$replyToken = $event['replyToken'];
