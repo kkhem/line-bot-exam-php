@@ -33,7 +33,7 @@ if (!is_null($events['events'])) {
 			$remark = "";
 
 			for ($i=2; $i < count($data_list) ; $i++) { 
-				$remark += $data_list[i];
+				$remark += "{$data_list[i]}";
 			}
 
 			$text = "Empcode = {$data_list[0]} , Location = {$data_list[1]} , Remark = {$remark}";
