@@ -41,8 +41,8 @@ if (!is_null($events['events'])) {
 
 			
 
-			$url = 'http://webexternal.nok.co.th/boardlinebot/api/Dest';
-			$post_data = array('emp_code' => $data_list[0], 'location' => urlencode($data_list[1]),'remark' => $remark);
+			$url = 'https://webexternal.nok.co.th/boardlinebot/api/Dest';
+			$post_data = array('emp_code' => $data_list[0], 'location' => $data_list[1),'remark' => $remark);
 
 			$options = array(
 				'http' => array(
