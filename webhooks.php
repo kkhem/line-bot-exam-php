@@ -54,7 +54,7 @@ if (!is_null($events['events'])) {
 				$text = "Can't Insert Data !";
 			}else{
 				$text = "Empcode = {$data_list[0]} , Location = {$data_list[1]} ";/*, Remark = {$remark} :D";*/
-				if( is_null(trim($remark)) ){
+				if( !(trim($remark === null)) ){
 					$text .= ", Remark = {$remark} :D";
 				}
 			}
