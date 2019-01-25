@@ -41,7 +41,7 @@ if (!is_null($events['events'])) {
 
 			
 
-			$url = 'https://webexternal.nok.co.th/boardlinebot/api/Dest';
+			$url1 = 'https://webexternal.nok.co.th/boardlinebot/api/Dest';
 			$post_data = array('emp_code' => $data_list[0], 'location' => $data_list[1),'remark' => $remark);
 
 			$options = array(
@@ -54,7 +54,7 @@ if (!is_null($events['events'])) {
 			
 
 			$context  = stream_context_create($options);
-			$result = file_get_contents($url, false, $context);
+			$result1 = file_get_contents($url1, false, $context);
 
 
 			//if ($result !== "Complete") { /* Handle error */ 
