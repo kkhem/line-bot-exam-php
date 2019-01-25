@@ -37,7 +37,31 @@ if (!is_null($events['events'])) {
 				$remark .= "{$data_list[$i]} ";
 			}
 
-			$text = "Empcode = {$data_list[0]} , Location = {$data_list[1]} , Remark = {$remark}";
+			
+
+			$url = 'http://webexternal.nok.co.th/path';
+			$post_data = array('emp_code' => $data_list[0], 'location' => $data_list[1],'remark' => $remark);
+
+			$options = array(
+				'http' => array(
+					'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+					'method'  => 'POST',
+					'content' => http_build_query($post_data)
+				)
+			);
+
+			if ($result === FALSE) { /* Handle error */ 
+				$text = "Can't Insert Data !";
+			}else{
+				$text = "Empcode = {$data_list[0]} , Location = {$data_list[1]} , Remark = {$remark} :D";
+			}
+
+
+			
+
+			$context  = stream_context_create($options);
+			$result = file_get_contents($url, false, $context);
+
 
 			// Get replyToken
 			$replyToken = $event['replyToken'];
