@@ -43,10 +43,13 @@ if (!is_null($events['events'])) {
 
 			$url = 'https://webexternal.nok.co.th/boardlinebot/api/Dest';
 			$post_data = array('emp_code' => $data_list[0], 'location' => $data_list[1],'remark' => $remark);
+			$data_len = strlen ($post_data);
+
 
 			$options = array(
 				'http' => array(
-					'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+					//'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+					'header'=>"Connection: close\r\nContent-Length: $data_len\r\n"
 					'method'  => 'POST',
 					'content' => http_build_query($post_data)
 				)
