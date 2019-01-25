@@ -41,8 +41,8 @@ if (!is_null($events['events'])) {
 
 			
 
-			$url1 = 'https://webexternal.nok.co.th/boardlinebot/api/Dest';
-			$post_data = array('emp_code' => $data_list[0], 'location' => $data_list[1),'remark' => $remark);
+			$url = 'https://webexternal.nok.co.th/boardlinebot/api/Dest';
+			$post_data = array('emp_code' => $data_list[0], 'location' => $data_list[1]),'remark' => $remark);
 
 			$options = array(
 				'http' => array(
@@ -54,15 +54,15 @@ if (!is_null($events['events'])) {
 			
 
 			$context  = stream_context_create($options);
-			$result1 = file_get_contents($url1, false, $context);
+			$result = file_get_contents($url, false, $context);
 
 
-			//if ($result !== "Complete") { /* Handle error */ 
-			//	$text = $result;
-			//}else{
+			if ($result !== "Complete") { /* Handle error */ 
+				$text = $result;
+			}else{
 				$text = "Empcode = {$data_list[0]} , Location = {$data_list[1]} Remark = {$remark} :D";
 
-			//}
+			}
 
 
 			// Get replyToken
