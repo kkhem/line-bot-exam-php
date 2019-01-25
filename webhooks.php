@@ -41,21 +41,39 @@ if (!is_null($events['events'])) {
 
 			
 
-			$url = 'https://webexternal.nok.co.th/boardlinebot/api/Dest';
-			$post_data = array('emp_code' => $data_list[0], 'location' => $data_list[1),'remark' => $remark);
+			// $url = 'https://webexternal.nok.co.th/boardlinebot/api/Dest';
+			// $post_data = array('emp_code' => $data_list[0], 'location' => $data_list[1),'remark' => $remark);
 
-			$options = array(
-				'http' => array(
-					'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-					'method'  => 'POST',
-					'content' => http_build_query($post_data)
-				)
-			);
+			// $options = array(
+			// 	'http' => array(
+			// 		'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+			// 		'method'  => 'POST',
+			// 		'content' => http_build_query($post_data)
+			// 	)
+			// );
 			
 
-			$context  = stream_context_create($options);
-			$result = file_get_contents($url, false, $context);
+			// $context  = stream_context_create($options);
+			// $result = file_get_contents($url, false, $context);
+			
+			$request = new HttpRequest();
+			$request->setUrl('https://webexternal.nok.co.th/boardlinebot/api/Dest');
+			$request->setMethod(HTTP_METH_POST);
 
+			$request->setQueryData(array(
+			'emp_code' => '160039',
+			'location' => 'osp1',
+			'remark' => ''
+			));
+
+			$request->setHeaders(array(
+			'cache-control' => 'no-cache'
+			));
+
+			try {
+			$response = $request->send();
+
+			$result = $response->getBody();
 
 			if ($result !== "Complete") { /* Handle error */ 
 				$text = $result;
@@ -63,6 +81,18 @@ if (!is_null($events['events'])) {
 				$text = "Empcode = {$data_list[0]} , Location = {$data_list[1]} Remark = {$remark} :D";
 
 			}
+
+			} catch (HttpException $ex) {
+				$text = $ex;
+
+			}
+
+			// if ($result !== "Complete") { /* Handle error */ 
+			// 	$text = $result;
+			// }else{
+			// 	$text = "Empcode = {$data_list[0]} , Location = {$data_list[1]} Remark = {$remark} :D";
+
+			// }
 
 
 			// Get replyToken
