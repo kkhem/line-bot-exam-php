@@ -53,7 +53,10 @@ if (!is_null($events['events'])) {
 			if ($result === FALSE) { /* Handle error */ 
 				$text = "Can't Insert Data !";
 			}else{
-				$text = "Empcode = {$data_list[0]} , Location = {$data_list[1]} , Remark = {$remark} :D";
+				$text = "Empcode = {$data_list[0]} , Location = {$data_list[1]} ";/*, Remark = {$remark} :D";*/
+				if( $remark != "" ){
+					$text .= ", Remark = {$remark} :D";
+				}
 			}
 
 
