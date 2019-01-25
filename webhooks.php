@@ -58,7 +58,7 @@ if (!is_null($events['events'])) {
 
 
 			if ($result !== "Complete") { /* Handle error */ 
-				$text = "Can't Insert Data !";
+				$text = $result;
 			}else{
 				$text = "Empcode = {$data_list[0]} , Location = {$data_list[1]} Remark = {$remark} :D";
 
