@@ -39,8 +39,10 @@ if (!is_null($events['events'])) {
 
 			
 
-			$url = 'http://webexternal.nok.co.th/path';
-			$post_data = array('emp_code' => $data_list[0], 'location' => $data_list[1],'remark' => $remark);
+			
+
+			$url = 'http://webexternal.nok.co.th/boardlinebot/api/Dest';
+			$post_data = array('emp_code' => $data_list[0], 'location' => urlencode($data_list[1]),'remark' => $remark);
 
 			$options = array(
 				'http' => array(
@@ -49,19 +51,18 @@ if (!is_null($events['events'])) {
 					'content' => http_build_query($post_data)
 				)
 			);
+			
 
-			if ($result === FALSE) { /* Handle error */ 
+			$context  = stream_context_create($options);
+			$result = file_get_contents($url, false, $context);
+
+
+			if ($result !== "Complete") { /* Handle error */ 
 				$text = "Can't Insert Data !";
 			}else{
 				$text = "Empcode = {$data_list[0]} , Location = {$data_list[1]} Remark = {$remark} :D";
 
 			}
-
-
-			
-
-			$context  = stream_context_create($options);
-			$result = file_get_contents($url, false, $context);
 
 
 			// Get replyToken
