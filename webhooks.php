@@ -57,12 +57,12 @@ if (!is_null($events['events'])) {
 			$result = file_get_contents($url, false, $context);
 
 
-			if ($result !== "Complete") { /* Handle error */ 
+			// if ($result !== "Complete") { /* Handle error */ 
 				$text = $result;
-			}else{
-				$text = "Empcode = {$data_list[0]} , Location = {$data_list[1]} Remark = {$remark} :D";
+			// }else{
+			// 	$text = "Empcode = {$data_list[0]} , Location = {$data_list[1]} Remark = {$remark} :D";
 
-			}
+			// }
 
 
 			// Get replyToken
