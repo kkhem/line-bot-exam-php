@@ -3,7 +3,7 @@
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-CURLOPT_URL => "http://webexternal/boardlinebot/api/Dest?emp_code=160039&location=osp1&remark=dsdsd",
+CURLOPT_URL => "https://webexternal.nok.co.th/boardlinebot/api/Dest?emp_code=160039&location=osp1&remark=dsdsd",
 CURLOPT_RETURNTRANSFER => true,
 CURLOPT_ENCODING => "",
 CURLOPT_MAXREDIRS => 10,
