@@ -1,12 +1,14 @@
 <?php
 
  
-$emp_code = $_GET['email'];
+$emp_code = $_GET['emp_code'];
+$location = $_GET['location'];
+$remark = $_GET['remark'];
 
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-CURLOPT_URL => "https://webexternal.nok.co.th/boardlinebot/api/Dest?emp_code={$emp_code}&location=osp1&remark=dsdsd",
+CURLOPT_URL => "https://webexternal.nok.co.th/boardlinebot/api/Dest?emp_code={$emp_code}&location={$location}&remark={$remark}",
 CURLOPT_RETURNTRANSFER => true,
 CURLOPT_ENCODING => "",
 CURLOPT_MAXREDIRS => 10,
