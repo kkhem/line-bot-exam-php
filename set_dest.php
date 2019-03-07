@@ -16,6 +16,9 @@ $request->setHeaders(array(
 ));
 
 $request->setContentType('application/x-www-form-urlencoded');
+$request->setPostFields(array(
+  'undefined' => null
+));
 
 try {
   $response = $request->send();
