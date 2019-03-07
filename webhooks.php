@@ -41,29 +41,26 @@ if (!is_null($events['events'])) {
 
 			
 
-			$url = 'https://webexternal.nok.co.th/boardlinebot/api/Dest';
-			$post_data = array('emp_code' => $data_list[0], 'location' => $data_list[1],'remark' => $remark);
-			$data_len = strlen ($post_data);
+			// $url = 'https://webexternal.nok.co.th/boardlinebot/api/Dest';
+			// $post_data = array('emp_code' => $data_list[0], 'location' => $data_list[1],'remark' => $remark);
 
-
-			$options = array(
-				'http' => array(
-					//'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-					'header'=>"Connection: close\r\nContent-Length: $data_len\r\n"
-					'method'  => 'POST',
-					'content' => http_build_query($post_data)
-				)
-			);
+			// $options = array(
+			// 	'http' => array(
+			// 		//'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+			// 		'method'  => 'POST',
+			// 		'content' => http_build_query($post_data)
+			// 	)
+			// );
 			
 
-			$context  = stream_context_create($options);
-			$result = file_get_contents($url, false, $context);
+			// $context  = stream_context_create($options);
+			// $result = file_get_contents($url, false, $context);
 
 
 			// if ($result !== "Complete") { /* Handle error */ 
-				$text = $result;
+				// $text = $result;
 			// }else{
-			// 	$text = "Empcode = {$data_list[0]} , Location = {$data_list[1]} Remark = {$remark} :D";
+				$text = "Empcode = {$data_list[0]} , Location = {$data_list[1]} Remark = {$remark} :D";
 
 			// }
 
