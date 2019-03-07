@@ -5,10 +5,11 @@ require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
 
 function post_dest($emp_code,$location,$remark){
+	$len_lo = urlencode($location);
 	$curl = curl_init();
 
 	curl_setopt_array($curl, array(
-	CURLOPT_URL => "https://webexternal.nok.co.th/boardlinebot/api/Dest?emp_code={$emp_code}&location={$location}&remark={$remark}",
+	CURLOPT_URL => "https://webexternal.nok.co.th/boardlinebot/api/Dest?emp_code={$emp_code}&location={$len_lo}&remark={$remark}",
 	CURLOPT_RETURNTRANSFER => true,
 	CURLOPT_ENCODING => "",
 	CURLOPT_MAXREDIRS => 10,
