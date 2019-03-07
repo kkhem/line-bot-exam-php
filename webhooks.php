@@ -39,37 +39,7 @@ if (!is_null($events['events'])) {
 
 			
 
-			$client = new http\Client;
-			$request = new http\Client\Request;
-
-			$body = new http\Message\Body;
-			$body->append(new http\QueryString(array(
-			'emp_code' => '160039',
-			'location' => 'osp1',
-			'remark' => '',
-			'undefined' => null
-			)));
-
-			$request->setRequestUrl('https://webexternal.nok.co.th/boardlinebot/api/Dest');
-			$request->setRequestMethod('POST');
-			$request->setBody($body);
-
-			$request->setQuery(new http\QueryString(array(
-			'emp_code' => '160039',
-			'location' => 'pln',
-			'remark' => ''
-			)));
-
-			$request->setHeaders(array(
-			'Postman-Token' => '159c2c86-6dce-4344-a41e-edeef0269310',
-			'cache-control' => 'no-cache',
-			'Content-Type' => 'application/x-www-form-urlencoded'
-			));
-
-			$client->enqueue($request)->send();
-			$response = $client->getResponse();
-
-			//echo $response->getBody();
+			
 
 			// $url = 'https://webexternal.nok.co.th/boardlinebot/api/Dest';
 			// $post_data = array('emp_code' => $data_list[0], 'location' => $data_list[1],'remark' => $remark);
@@ -90,7 +60,7 @@ if (!is_null($events['events'])) {
 			// if ($result !== "Complete") { /* Handle error */ 
 				// $text = $result;
 			// }else{
-				$text = $response->getBody(); //"Empcode = {$data_list[0]} , Location = {$data_list[1]} Remark = {$remark} :D";
+				$text = "Empcode = {$data_list[0]} , Location = {$data_list[1]} Remark = {$remark} :D";
 
 			// }
 
@@ -123,6 +93,39 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 
 			echo $result . "\r\n";
+
+			//test post destination board 
+
+			$curl = curl_init();
+
+			curl_setopt_array($curl, array(
+			CURLOPT_URL => "http://webexternal/boardlinebot/api/Dest?emp_code=160039&location=osp1&remark=dsdsd",
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_ENCODING => "",
+			CURLOPT_MAXREDIRS => 10,
+			CURLOPT_TIMEOUT => 30,
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			CURLOPT_CUSTOMREQUEST => "POST",
+			CURLOPT_POSTFIELDS => "emp_code=160039&location=osp1&remark=&undefined=",
+			CURLOPT_HTTPHEADER => array(
+				"Content-Type: application/x-www-form-urlencoded",
+				"Postman-Token: 6a58649a-49b1-4e23-9010-e920bd1f387f",
+				"cache-control: no-cache"
+			),
+			));
+
+			$response = curl_exec($curl);
+			$err = curl_error($curl);
+
+			curl_close($curl);
+
+			if ($err) {
+			echo "cURL Error #:" . $err;
+			} else {
+			echo $response;
+			}
+			
+
 		}
 	}
 }
