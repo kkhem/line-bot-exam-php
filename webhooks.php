@@ -3,6 +3,33 @@
 require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
+
+function post_dest($emp_code,$location,$remark){
+	$curl = curl_init();
+
+	curl_setopt_array($curl, array(
+	CURLOPT_URL => "https://webexternal.nok.co.th/boardlinebot/api/Dest?emp_code={$emp_code}&location={$location}&remark={$remark}",
+	CURLOPT_RETURNTRANSFER => true,
+	CURLOPT_ENCODING => "",
+	CURLOPT_MAXREDIRS => 10,
+	CURLOPT_TIMEOUT => 30,
+	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+	CURLOPT_CUSTOMREQUEST => "POST",
+	CURLOPT_POSTFIELDS => "emp_code=160039&location=osp1&remark=&undefined=",
+	CURLOPT_HTTPHEADER => array(
+		"Content-Type: application/x-www-form-urlencoded",
+		"Postman-Token: 6a58649a-49b1-4e23-9010-e920bd1f387f",
+		"cache-control: no-cache"
+	),
+	));
+
+	$response = curl_exec($curl);
+	$err = curl_error($curl);
+
+	curl_close($curl);
+}
+
+
 $access_token = 'Wi2qUPlazMv6/shh9XJ1r0SeXRmfVyqxbTJgSqazLM+5DjrvqLBuF9rNVogQXqfe11rMbXxYFdx+5Ul9Ue/xgCM39ET/gMOST9AaEoGCDbEn34K8TdX1onpoWIoMBJygd8YJ/lxhdBNzfgIRPMh7AwdB04t89/1O/w1cDnyilFU=';
 
 // Get POST body content
@@ -61,7 +88,7 @@ if (!is_null($events['events'])) {
 				// $text = $result;
 			// }else{
 				$text = "Empcode = {$data_list[0]} , Location = {$data_list[1]} Remark = {$remark} :D";
-
+				post_dest($data_list[0],$data_list[1],$remark);
 			// }
 
 
