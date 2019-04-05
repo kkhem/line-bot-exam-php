@@ -90,8 +90,24 @@ if (!is_null($events['events'])) {
 			// if ($result !== "Complete") { /* Handle error */ 
 				// $text = $result;
 			// }else{
+			if($data_list[0] == "ShowAll"){
+				if($data_list[1] == "IT"){
+					$text = " show all IT ! ";
+				}else if($data_list[1] == "WEB"){
+					$text = " show all WEB ! ";
+				}else if($data_list[1] == "QIM"){
+					$text = " show all QIM ! ";
+				}else if($data_list[1] == "SMART"){
+					$text = " show all SMART ! ";
+				}else if($data_list[1] == "BCS"){
+					$text = " show all BCS ! ";
+				}
+				$return_cul = "Complete";
+			}else{
 				$text = "Empcode = {$data_list[0]} , Location = {$data_list[1]} Remark = {$remark} :D";
 				$return_cul = post_dest($data_list[0],$data_list[1],$remark);
+			}
+			
 			// }
 
 
@@ -99,11 +115,17 @@ if (!is_null($events['events'])) {
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
-			$messages = [
-				'type' => 'text',
-				'text' => "{$text} -- {$return_cul} "
-			];
-
+			if($return_cul == "Complete"){
+				$messages = [
+					'type' => 'text',
+					'text' => "{$text}"
+				];
+			}else{
+				$messages = [
+					'type' => 'text',
+					'text' => "Can't insert."
+				];
+			}
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
