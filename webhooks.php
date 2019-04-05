@@ -115,7 +115,7 @@ if (!is_null($events['events'])) {
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
-			if($return_cul == "Complete"){
+			if(trim($return_cul) == "Complete"){
 				$messages = [
 					'type' => 'text',
 					'text' => "{$text}"
