@@ -115,17 +115,17 @@ if (!is_null($events['events'])) {
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
-			// if(trim($return_cul) == "Complete"){
+			if(trim($return_cul) == '"Complete"'){
 				$messages = [
 					'type' => 'text',
 					'text' => "{$text} -- {$return_cul}"
 				];
-			// }else{
-			// 	$messages = [
-			// 		'type' => 'text',
-			// 		'text' => "Can't insert."
-			// 	];
-			// }
+			}else{
+				$messages = [
+					'type' => 'text',
+					'text' => "Can't insert."
+				];
+			}
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
