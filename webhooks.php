@@ -27,7 +27,7 @@ function post_dest($emp_code,$location,$remark){
 	$response = curl_exec($curl);
 	$err = curl_error($curl);
 
-	curl_close($curl);
+	return curl_close($curl);
 }
 
 
@@ -62,7 +62,7 @@ if (!is_null($events['events'])) {
 
 			for ($i=2; $i <= count($data_list) ; $i++) { 
 				
-				$remark .= "{$data_list[$i]} ";
+				$remark .= "{$data_list[$i]}";
 			}
 
 			
@@ -89,7 +89,7 @@ if (!is_null($events['events'])) {
 				// $text = $result;
 			// }else{
 				$text = "Empcode = {$data_list[0]} , Location = {$data_list[1]} Remark = {$remark} :D";
-				post_dest($data_list[0],$data_list[1],$remark);
+				$return_cul = post_dest($data_list[0],$data_list[1],$remark);
 			// }
 
 
@@ -99,7 +99,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $text
+				'text' => "{$text} -- {$return_cul} "
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
