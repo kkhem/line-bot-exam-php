@@ -118,7 +118,7 @@ if (!is_null($events['events'])) {
 			if(trim($return_cul) == '"Complete"'){
 				$messages = [
 					'type' => 'text',
-					'text' => "{$text} -- {$return_cul}"
+					'text' => "{$text}"
 				];
 			}else{
 				$messages = [
