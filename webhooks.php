@@ -102,7 +102,7 @@ if (!is_null($events['events'])) {
 				}else if($data_list[1] == "BCS"){
 					$text = " show all BCS ! ";
 				}
-				$return_cul = "Complete";
+				$return_cul = '"Complete"';
 			}else{
 				$text = "Empcode = {$data_list[0]} , Location = {$data_list[1]} Remark = {$remark} :D";
 				$return_cul = post_dest($data_list[0],$data_list[1],$remark);
