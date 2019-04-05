@@ -27,7 +27,8 @@ function post_dest($emp_code,$location,$remark){
 	$response = curl_exec($curl);
 	$err = curl_error($curl);
 
-	return curl_close($curl);
+	curl_close($curl);
+	return $response;
 }
 
 
