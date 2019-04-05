@@ -63,7 +63,7 @@ if (!is_null($events['events'])) {
 
 			for ($i=2; $i <= count($data_list) ; $i++) { 
 				
-				$remark .= "{$data_list[$i]}";
+				$remark .= "{$data_list[$i]}&nbsp;";
 			}
 
 			
