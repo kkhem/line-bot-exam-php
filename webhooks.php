@@ -93,14 +93,14 @@ if (!is_null($events['events'])) {
 			if($data_list[0] == "ShowAll"){
 				if($data_list[1] == "IT"){
 					$text = " show all IT ! ";
-				}else if($data_list[1] == "WEB"){
-					$text = " show all WEB ! ";
-				}else if($data_list[1] == "QIM"){
-					$text = " show all QIM ! ";
-				}else if($data_list[1] == "SMART"){
-					$text = " show all SMART ! ";
-				}else if($data_list[1] == "BCS"){
-					$text = " show all BCS ! ";
+				}else if($data_list[1] == "IS"){
+					$text = " show all IS ! ";
+				// }else if($data_list[1] == "QIM"){
+				// 	$text = " show all QIM ! ";
+				// }else if($data_list[1] == "SMART"){
+				// 	$text = " show all SMART ! ";
+				// }else if($data_list[1] == "BCS"){
+				// 	$text = " show all BCS ! ";
 				}
 				$return_cul = '"Complete"';
 			}else{
