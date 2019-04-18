@@ -94,7 +94,7 @@ if (!is_null($events['events'])) {
 				if($data_list[1] == "IT"){
 					$text = " show all IT ! ";
 				}else if($data_list[1] == "IS"){
-					$text = " show all IS ! ";
+					$text = " show all IS ! \n asdasds";
 				// }else if($data_list[1] == "QIM"){
 				// 	$text = " show all QIM ! ";
 				// }else if($data_list[1] == "SMART"){
